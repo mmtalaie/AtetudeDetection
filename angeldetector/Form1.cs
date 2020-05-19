@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using AForge;
 using AForge.Imaging.Filters;
 using AForge.Math;
@@ -39,6 +40,15 @@ namespace angeldetector
         KalmanFilter KCPitch;
         KalmanFilter KCYaw;
 
+        List<double> aListRoll;
+        List<double> aListPitch;
+        List<double> aListYaw;
+        List<double> bListRoll;
+        List<double> bListPitch;
+        List<double> bListYaw;
+        List<double> cListRoll;
+        List<double> cListPitch;
+        List<double> cListYaw;
 
 
         //Accord.Statistics.Running.KalmanFilter2D kfA1 = new Accord.Statistics.Running.KalmanFilter2D();
@@ -485,7 +495,7 @@ namespace angeldetector
                         yawa = estimatedYaw = Convert.ToSingle(KAYaw.Output(a));
                         var p = estimatedPitch * (float)(180.0 / Math.PI);
                         pitcha = estimatedPitch = Convert.ToSingle(KAPitch.Output(p));
-                        var r =estimatedRoll * (float)(180.0 / Math.PI);
+                        var r = estimatedRoll * (float)(180.0 / Math.PI);
                         rolla = estimatedRoll = Convert.ToSingle(KARoll.Output(r));
 
                         // TO DOO
@@ -651,15 +661,48 @@ namespace angeldetector
 
         }
 
+        /// <summary>
+        /// Append a graph.
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="name"></param>
+        /// <param name="vals"></param>
+        /// <param name="clr"></param>
+        protected void graph(Chart c, string name, List<double> valList, Color clr)
+        {
+
+            Series s = new Series(name);
+            s.ChartType = SeriesChartType.Line;
+            var vals = valList.ToArray();
+            for (int i = 0; i < vals.Length; i++)
+            {
+                s.Points.Add(new DataPoint(i, vals[i]));
+            }
+            s.Color = clr;
+            c.Series.Add(s);
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-           double A = 1;
-           double H =1;
-           double Q = 0.750;//noise
-           double R = 1;//assumed
-           double P = 0.1;
-           double x = 0;
-            KARoll = new KalmanFilter(A, H,Q, R, P, x);
+            aListRoll = new List<double>() { 0};
+            aListPitch = new List<double>() { 0 };
+            aListYaw = new List<double>() { 0 };
+
+            bListRoll = new List<double>() { 0 };
+            bListPitch = new List<double>() { 0 };
+            bListYaw = new List<double>() { 0 };
+
+            cListRoll = new List<double>() { 0 };
+            cListPitch = new List<double>() { 0 };
+            cListYaw = new List<double>() { 0 };
+
+            double A = 1;
+            double H = 1;
+            double Q = 0.900;//noise
+            double R = 100;
+            double P = 0.1;
+            double x = 0;
+            KARoll = new KalmanFilter(A, H, Q, R, P, x);
             KAPitch = new KalmanFilter(A, H, Q, R, P, x);
             KAYaw = new KalmanFilter(A, H, Q, R, P, x);
 
@@ -1118,6 +1161,38 @@ namespace angeldetector
             int s = DateTime.Now.Second - gtime.Second;
             int ms = DateTime.Now.Millisecond - gtime.Millisecond;
             float time = h * 3600 + m * 60 + s + ms / 1000.0F;
+
+            if (rolla != 500) aListRoll.Add(rolla); else aListRoll.Add(aListRoll.Last());
+            if (pitcha != 500) aListPitch.Add(pitcha); else aListPitch.Add(aListPitch.Last());
+            if (yawa != 500) aListYaw.Add(yawa); else aListYaw.Add(aListYaw.Last());
+
+            if (rollb != 500) bListRoll.Add(rollb); else bListRoll.Add(bListRoll.Last());
+            if (pitchb != 500) bListPitch.Add(pitchb); else bListPitch.Add(bListPitch.Last());
+            if (yawb != 500) bListYaw.Add(yawb); else bListYaw.Add(bListYaw.Last());
+
+            if (rollc != 500) cListRoll.Add(rollc); else cListRoll.Add(cListRoll.Last());
+            if (pitchc != 500) cListPitch.Add(pitchc); else cListPitch.Add(cListPitch.Last());
+            if (yawc != 500) cListYaw.Add(yawc); else cListYaw.Add(cListYaw.Last());
+
+
+            rollChart.Series.Clear();
+            graph(rollChart, "A Roll", aListRoll, Color.Black);
+            graph(rollChart, "B Roll", bListRoll, Color.Blue);
+            graph(rollChart, "C Roll", cListRoll, Color.Red);
+            rollChart.ChartAreas[0].RecalculateAxesScale();
+
+            pitchChart.Series.Clear();
+            graph(pitchChart, "A Pich", aListPitch, Color.Black);
+            graph(pitchChart, "B Pich", bListPitch, Color.Blue);
+            graph(pitchChart, "C Pich", cListPitch, Color.Red);
+            pitchChart.ChartAreas[0].RecalculateAxesScale();
+
+            yawChart.Series.Clear();
+            graph(yawChart, "A Yaw", aListYaw, Color.Black);
+            graph(yawChart, "B Yaw", bListYaw, Color.Blue);
+            graph(yawChart, "C Yaw", cListYaw, Color.Red);
+            yawChart.ChartAreas[0].RecalculateAxesScale();
+
             byte[] title = new UTF8Encoding(true).GetBytes(string.Format("{0}    {1},{2},{3}    {4},{5},{6}    {7},{8},{9}\r\n", time, yawa, pitcha, rolla, yawb, pitchb, rollb, yawc, pitchc, rollc));
             fs.Write(title, 0, title.Length);
             yawa = 500; pitcha = 500; rolla = 500;

@@ -29,11 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.videoSourcePlayer = new AForge.Controls.VideoSourcePlayer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.button3 = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.fpsLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -58,26 +64,13 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.PARchk = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.poseGroupBox = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.estimatedTransformationMatrixControl3 = new angeldetector.MatrixControl();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.estimatedTransformationMatrixControl2 = new angeldetector.MatrixControl();
-            this.estimatedTransformationMatrixControl1 = new angeldetector.MatrixControl();
-            this.alternatePoseButton = new System.Windows.Forms.Button();
-            this.bestPoseButton = new System.Windows.Forms.Button();
-            this.focalLengthBox = new System.Windows.Forms.TextBox();
-            this.focalLengthLabel = new System.Windows.Forms.Label();
-            this.copositRadio = new System.Windows.Forms.RadioButton();
-            this.positRadio = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.focalLen = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.klmNoiseY = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -95,11 +88,33 @@
             this.tbx02 = new System.Windows.Forms.TextBox();
             this.tbx01 = new System.Windows.Forms.TextBox();
             this.tbx00 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button5 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.focalLen = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.poseGroupBox = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.estimatedTransformationMatrixControl3 = new angeldetector.MatrixControl();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.estimatedTransformationMatrixControl2 = new angeldetector.MatrixControl();
+            this.estimatedTransformationMatrixControl1 = new angeldetector.MatrixControl();
+            this.alternatePoseButton = new System.Windows.Forms.Button();
+            this.bestPoseButton = new System.Windows.Forms.Button();
+            this.focalLengthBox = new System.Windows.Forms.TextBox();
+            this.focalLengthLabel = new System.Windows.Forms.Label();
+            this.copositRadio = new System.Windows.Forms.RadioButton();
+            this.positRadio = new System.Windows.Forms.RadioButton();
+            this.button4 = new System.Windows.Forms.Button();
+            this.PARchk = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.yawChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pitchChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.rollChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.glyphCollectionsContextMenu.SuspendLayout();
@@ -109,8 +124,14 @@
             this.splitContainer.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.glyphCollectionContextMenu.SuspendLayout();
-            this.poseGroupBox.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.poseGroupBox.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yawChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitchChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rollChart)).BeginInit();
             this.SuspendLayout();
             // 
             // videoSourcePlayer
@@ -125,40 +146,10 @@
             this.videoSourcePlayer.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(this.videoSourcePlayer_NewFrame);
             this.videoSourcePlayer.PlayingFinished += new AForge.Video.PlayingFinishedEventHandler(this.videoSourcePlayer_PlayingFinished);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Camera";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(13, 43);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "VideoFile";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog";
             this.openFileDialog.Title = "Opem movie";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(94, 43);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "ShowBoarder";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // timer
             // 
@@ -377,45 +368,275 @@
             this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.printPreviewToolStripMenuItem.Text = "Print Preview";
             // 
-            // label1
+            // timer1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "label1";
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label2
+            // tabControl1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 106);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "label2";
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 1);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1372, 376);
+            this.tabControl1.TabIndex = 20;
             // 
-            // PARchk
+            // tabPage1
             // 
-            this.PARchk.AutoSize = true;
-            this.PARchk.Location = new System.Drawing.Point(204, 26);
-            this.PARchk.Name = "PARchk";
-            this.PARchk.Size = new System.Drawing.Size(48, 17);
-            this.PARchk.TabIndex = 9;
-            this.PARchk.Text = "PAR";
-            this.PARchk.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.button5);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.focalLen);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.poseGroupBox);
+            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.PARchk);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1364, 350);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Setings";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // button5
             // 
-            this.button4.Location = new System.Drawing.Point(204, 43);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Zero";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button5.Location = new System.Drawing.Point(11, 176);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(507, 23);
+            this.button5.TabIndex = 35;
+            this.button5.Text = "Start To Write";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(101, 136);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 20);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "label7";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(7, 148);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 20);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "label8";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(101, 116);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 20);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "label6";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.klmNoiseY);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.klmNoiseX);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.Copy);
+            this.groupBox3.Controls.Add(this.chbafter);
+            this.groupBox3.Controls.Add(this.chbuseit);
+            this.groupBox3.Controls.Add(this.tbx22);
+            this.groupBox3.Controls.Add(this.tbx21);
+            this.groupBox3.Controls.Add(this.tbx20);
+            this.groupBox3.Controls.Add(this.tbx12);
+            this.groupBox3.Controls.Add(this.tbx11);
+            this.groupBox3.Controls.Add(this.tbx10);
+            this.groupBox3.Controls.Add(this.tbx02);
+            this.groupBox3.Controls.Add(this.tbx01);
+            this.groupBox3.Controls.Add(this.tbx00);
+            this.groupBox3.Location = new System.Drawing.Point(1032, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(325, 331);
+            this.groupBox3.TabIndex = 31;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "matrix";
+            // 
+            // klmNoiseY
+            // 
+            this.klmNoiseY.Location = new System.Drawing.Point(116, 220);
+            this.klmNoiseY.Name = "klmNoiseY";
+            this.klmNoiseY.Size = new System.Drawing.Size(85, 20);
+            this.klmNoiseY.TabIndex = 16;
+            this.klmNoiseY.Text = "0.5";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 221);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "KalmanNoiseY : ";
+            // 
+            // klmNoiseX
+            // 
+            this.klmNoiseX.Location = new System.Drawing.Point(116, 185);
+            this.klmNoiseX.Name = "klmNoiseX";
+            this.klmNoiseX.Size = new System.Drawing.Size(85, 20);
+            this.klmNoiseX.TabIndex = 14;
+            this.klmNoiseX.Text = "0.5";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 188);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "KalmanNoiseX : ";
+            // 
+            // Copy
+            // 
+            this.Copy.Location = new System.Drawing.Point(15, 23);
+            this.Copy.Name = "Copy";
+            this.Copy.Size = new System.Drawing.Size(186, 23);
+            this.Copy.TabIndex = 12;
+            this.Copy.Text = "Copy Inverse";
+            this.Copy.UseVisualStyleBackColor = true;
+            this.Copy.Click += new System.EventHandler(this.Copy_Click);
+            // 
+            // chbafter
+            // 
+            this.chbafter.AutoSize = true;
+            this.chbafter.Location = new System.Drawing.Point(79, 60);
+            this.chbafter.Name = "chbafter";
+            this.chbafter.Size = new System.Drawing.Size(67, 17);
+            this.chbafter.TabIndex = 11;
+            this.chbafter.Text = "Mul after";
+            this.chbafter.UseVisualStyleBackColor = true;
+            // 
+            // chbuseit
+            // 
+            this.chbuseit.AutoSize = true;
+            this.chbuseit.Location = new System.Drawing.Point(15, 60);
+            this.chbuseit.Name = "chbuseit";
+            this.chbuseit.Size = new System.Drawing.Size(68, 17);
+            this.chbuseit.TabIndex = 10;
+            this.chbuseit.Text = "Use This";
+            this.chbuseit.UseVisualStyleBackColor = true;
+            // 
+            // tbx22
+            // 
+            this.tbx22.Location = new System.Drawing.Point(143, 144);
+            this.tbx22.Name = "tbx22";
+            this.tbx22.Size = new System.Drawing.Size(58, 20);
+            this.tbx22.TabIndex = 8;
+            this.tbx22.Text = "1";
+            // 
+            // tbx21
+            // 
+            this.tbx21.Location = new System.Drawing.Point(79, 144);
+            this.tbx21.Name = "tbx21";
+            this.tbx21.Size = new System.Drawing.Size(58, 20);
+            this.tbx21.TabIndex = 7;
+            this.tbx21.Text = "0";
+            // 
+            // tbx20
+            // 
+            this.tbx20.Location = new System.Drawing.Point(15, 144);
+            this.tbx20.Name = "tbx20";
+            this.tbx20.Size = new System.Drawing.Size(58, 20);
+            this.tbx20.TabIndex = 6;
+            this.tbx20.Text = "0";
+            // 
+            // tbx12
+            // 
+            this.tbx12.Location = new System.Drawing.Point(143, 118);
+            this.tbx12.Name = "tbx12";
+            this.tbx12.Size = new System.Drawing.Size(58, 20);
+            this.tbx12.TabIndex = 5;
+            this.tbx12.Text = "0";
+            // 
+            // tbx11
+            // 
+            this.tbx11.Location = new System.Drawing.Point(79, 118);
+            this.tbx11.Name = "tbx11";
+            this.tbx11.Size = new System.Drawing.Size(58, 20);
+            this.tbx11.TabIndex = 4;
+            this.tbx11.Text = "1";
+            // 
+            // tbx10
+            // 
+            this.tbx10.Location = new System.Drawing.Point(15, 118);
+            this.tbx10.Name = "tbx10";
+            this.tbx10.Size = new System.Drawing.Size(58, 20);
+            this.tbx10.TabIndex = 3;
+            this.tbx10.Text = "0";
+            // 
+            // tbx02
+            // 
+            this.tbx02.Location = new System.Drawing.Point(143, 92);
+            this.tbx02.Name = "tbx02";
+            this.tbx02.Size = new System.Drawing.Size(58, 20);
+            this.tbx02.TabIndex = 2;
+            this.tbx02.Text = "0";
+            // 
+            // tbx01
+            // 
+            this.tbx01.Location = new System.Drawing.Point(79, 92);
+            this.tbx01.Name = "tbx01";
+            this.tbx01.Size = new System.Drawing.Size(58, 20);
+            this.tbx01.TabIndex = 1;
+            this.tbx01.Text = "0";
+            // 
+            // tbx00
+            // 
+            this.tbx00.Location = new System.Drawing.Point(15, 92);
+            this.tbx00.Name = "tbx00";
+            this.tbx00.Size = new System.Drawing.Size(58, 20);
+            this.tbx00.TabIndex = 0;
+            this.tbx00.Text = "1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(101, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 20);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "label5";
+            // 
+            // focalLen
+            // 
+            this.focalLen.Location = new System.Drawing.Point(337, 50);
+            this.focalLen.Name = "focalLen";
+            this.focalLen.Size = new System.Drawing.Size(75, 23);
+            this.focalLen.TabIndex = 29;
+            this.focalLen.Text = "focal";
+            this.focalLen.UseVisualStyleBackColor = true;
+            this.focalLen.Click += new System.EventHandler(this.focalLen_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(418, 50);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 28;
+            this.textBox1.Text = "640";
             // 
             // poseGroupBox
             // 
@@ -434,10 +655,10 @@
             this.poseGroupBox.Controls.Add(this.focalLengthLabel);
             this.poseGroupBox.Controls.Add(this.copositRadio);
             this.poseGroupBox.Controls.Add(this.positRadio);
-            this.poseGroupBox.Location = new System.Drawing.Point(526, 26);
+            this.poseGroupBox.Location = new System.Drawing.Point(524, 6);
             this.poseGroupBox.Name = "poseGroupBox";
-            this.poseGroupBox.Size = new System.Drawing.Size(483, 351);
-            this.poseGroupBox.TabIndex = 11;
+            this.poseGroupBox.Size = new System.Drawing.Size(483, 363);
+            this.poseGroupBox.TabIndex = 27;
             this.poseGroupBox.TabStop = false;
             this.poseGroupBox.Text = "matrixes";
             // 
@@ -557,265 +778,143 @@
             this.positRadio.UseVisualStyleBackColor = true;
             this.positRadio.Visible = false;
             // 
-            // textBox1
+            // button4
             // 
-            this.textBox1.Location = new System.Drawing.Point(420, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 12;
-            this.textBox1.Text = "640";
+            this.button4.Location = new System.Drawing.Point(202, 47);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 26;
+            this.button4.Text = "Zero";
+            this.button4.UseVisualStyleBackColor = true;
             // 
-            // focalLen
+            // PARchk
             // 
-            this.focalLen.Location = new System.Drawing.Point(339, 46);
-            this.focalLen.Name = "focalLen";
-            this.focalLen.Size = new System.Drawing.Size(75, 23);
-            this.focalLen.TabIndex = 13;
-            this.focalLen.Text = "focal";
-            this.focalLen.UseVisualStyleBackColor = true;
-            this.focalLen.Click += new System.EventHandler(this.focalLen_Click);
+            this.PARchk.AutoSize = true;
+            this.PARchk.Location = new System.Drawing.Point(202, 30);
+            this.PARchk.Name = "PARchk";
+            this.PARchk.Size = new System.Drawing.Size(48, 17);
+            this.PARchk.TabIndex = 25;
+            this.PARchk.Text = "PAR";
+            this.PARchk.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // label2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(103, 86);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "label5";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "label2";
             // 
-            // groupBox3
+            // label1
             // 
-            this.groupBox3.Controls.Add(this.klmNoiseY);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.klmNoiseX);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.Copy);
-            this.groupBox3.Controls.Add(this.chbafter);
-            this.groupBox3.Controls.Add(this.chbuseit);
-            this.groupBox3.Controls.Add(this.tbx22);
-            this.groupBox3.Controls.Add(this.tbx21);
-            this.groupBox3.Controls.Add(this.tbx20);
-            this.groupBox3.Controls.Add(this.tbx12);
-            this.groupBox3.Controls.Add(this.tbx11);
-            this.groupBox3.Controls.Add(this.tbx10);
-            this.groupBox3.Controls.Add(this.tbx02);
-            this.groupBox3.Controls.Add(this.tbx01);
-            this.groupBox3.Controls.Add(this.tbx00);
-            this.groupBox3.Location = new System.Drawing.Point(1034, 26);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(325, 331);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "matrix";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "label1";
             // 
-            // klmNoiseY
+            // button3
             // 
-            this.klmNoiseY.Location = new System.Drawing.Point(116, 220);
-            this.klmNoiseY.Name = "klmNoiseY";
-            this.klmNoiseY.Size = new System.Drawing.Size(85, 20);
-            this.klmNoiseY.TabIndex = 16;
-            this.klmNoiseY.Text = "0.5";
-            this.klmNoiseY.TextChanged += new System.EventHandler(this.klmNoiseY_TextChanged);
+            this.button3.Location = new System.Drawing.Point(92, 47);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(104, 23);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "ShowBoarder";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // button2
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 221);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 13);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "KalmanNoiseY : ";
+            this.button2.Location = new System.Drawing.Point(11, 47);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "VideoFile";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // klmNoiseX
+            // button1
             // 
-            this.klmNoiseX.Location = new System.Drawing.Point(116, 185);
-            this.klmNoiseX.Name = "klmNoiseX";
-            this.klmNoiseX.Size = new System.Drawing.Size(85, 20);
-            this.klmNoiseX.TabIndex = 14;
-            this.klmNoiseX.Text = "0.5";
-            this.klmNoiseX.TextChanged += new System.EventHandler(this.klmNoiseX_TextChanged);
+            this.button1.Location = new System.Drawing.Point(11, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Camera";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label10
+            // tabPage2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 188);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 13);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "KalmanNoiseX : ";
+            this.tabPage2.Controls.Add(this.yawChart);
+            this.tabPage2.Controls.Add(this.pitchChart);
+            this.tabPage2.Controls.Add(this.rollChart);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1364, 350);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Chart";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Copy
+            // yawChart
             // 
-            this.Copy.Location = new System.Drawing.Point(15, 23);
-            this.Copy.Name = "Copy";
-            this.Copy.Size = new System.Drawing.Size(186, 23);
-            this.Copy.TabIndex = 12;
-            this.Copy.Text = "Copy Inverse";
-            this.Copy.UseVisualStyleBackColor = true;
-            this.Copy.Click += new System.EventHandler(this.Copy_Click);
+            chartArea1.Name = "ChartArea1";
+            this.yawChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.yawChart.Legends.Add(legend1);
+            this.yawChart.Location = new System.Drawing.Point(6, 167);
+            this.yawChart.Name = "yawChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.yawChart.Series.Add(series1);
+            this.yawChart.Size = new System.Drawing.Size(585, 177);
+            this.yawChart.TabIndex = 2;
+            this.yawChart.Text = "chart3";
             // 
-            // chbafter
+            // pitchChart
             // 
-            this.chbafter.AutoSize = true;
-            this.chbafter.Location = new System.Drawing.Point(79, 60);
-            this.chbafter.Name = "chbafter";
-            this.chbafter.Size = new System.Drawing.Size(67, 17);
-            this.chbafter.TabIndex = 11;
-            this.chbafter.Text = "Mul after";
-            this.chbafter.UseVisualStyleBackColor = true;
+            chartArea2.Name = "ChartArea1";
+            this.pitchChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.pitchChart.Legends.Add(legend2);
+            this.pitchChart.Location = new System.Drawing.Point(642, 6);
+            this.pitchChart.Name = "pitchChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.pitchChart.Series.Add(series2);
+            this.pitchChart.Size = new System.Drawing.Size(585, 177);
+            this.pitchChart.TabIndex = 1;
+            this.pitchChart.Text = "chart2";
             // 
-            // chbuseit
+            // rollChart
             // 
-            this.chbuseit.AutoSize = true;
-            this.chbuseit.Location = new System.Drawing.Point(15, 60);
-            this.chbuseit.Name = "chbuseit";
-            this.chbuseit.Size = new System.Drawing.Size(68, 17);
-            this.chbuseit.TabIndex = 10;
-            this.chbuseit.Text = "Use This";
-            this.chbuseit.UseVisualStyleBackColor = true;
-            // 
-            // tbx22
-            // 
-            this.tbx22.Location = new System.Drawing.Point(143, 144);
-            this.tbx22.Name = "tbx22";
-            this.tbx22.Size = new System.Drawing.Size(58, 20);
-            this.tbx22.TabIndex = 8;
-            this.tbx22.Text = "1";
-            // 
-            // tbx21
-            // 
-            this.tbx21.Location = new System.Drawing.Point(79, 144);
-            this.tbx21.Name = "tbx21";
-            this.tbx21.Size = new System.Drawing.Size(58, 20);
-            this.tbx21.TabIndex = 7;
-            this.tbx21.Text = "0";
-            // 
-            // tbx20
-            // 
-            this.tbx20.Location = new System.Drawing.Point(15, 144);
-            this.tbx20.Name = "tbx20";
-            this.tbx20.Size = new System.Drawing.Size(58, 20);
-            this.tbx20.TabIndex = 6;
-            this.tbx20.Text = "0";
-            // 
-            // tbx12
-            // 
-            this.tbx12.Location = new System.Drawing.Point(143, 118);
-            this.tbx12.Name = "tbx12";
-            this.tbx12.Size = new System.Drawing.Size(58, 20);
-            this.tbx12.TabIndex = 5;
-            this.tbx12.Text = "0";
-            // 
-            // tbx11
-            // 
-            this.tbx11.Location = new System.Drawing.Point(79, 118);
-            this.tbx11.Name = "tbx11";
-            this.tbx11.Size = new System.Drawing.Size(58, 20);
-            this.tbx11.TabIndex = 4;
-            this.tbx11.Text = "1";
-            // 
-            // tbx10
-            // 
-            this.tbx10.Location = new System.Drawing.Point(15, 118);
-            this.tbx10.Name = "tbx10";
-            this.tbx10.Size = new System.Drawing.Size(58, 20);
-            this.tbx10.TabIndex = 3;
-            this.tbx10.Text = "0";
-            // 
-            // tbx02
-            // 
-            this.tbx02.Location = new System.Drawing.Point(143, 92);
-            this.tbx02.Name = "tbx02";
-            this.tbx02.Size = new System.Drawing.Size(58, 20);
-            this.tbx02.TabIndex = 2;
-            this.tbx02.Text = "0";
-            // 
-            // tbx01
-            // 
-            this.tbx01.Location = new System.Drawing.Point(79, 92);
-            this.tbx01.Name = "tbx01";
-            this.tbx01.Size = new System.Drawing.Size(58, 20);
-            this.tbx01.TabIndex = 1;
-            this.tbx01.Text = "0";
-            // 
-            // tbx00
-            // 
-            this.tbx00.Location = new System.Drawing.Point(15, 92);
-            this.tbx00.Name = "tbx00";
-            this.tbx00.Size = new System.Drawing.Size(58, 20);
-            this.tbx00.TabIndex = 0;
-            this.tbx00.Text = "1";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(103, 112);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 20);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "label6";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(103, 132);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 20);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 144);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 20);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "label8";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(13, 172);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(507, 23);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Start To Write";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            chartArea3.Name = "ChartArea1";
+            this.rollChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.rollChart.Legends.Add(legend3);
+            this.rollChart.Location = new System.Drawing.Point(8, 15);
+            this.rollChart.Name = "rollChart";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.rollChart.Series.Add(series3);
+            this.rollChart.Size = new System.Drawing.Size(585, 159);
+            this.rollChart.TabIndex = 0;
+            this.rollChart.Text = "chart1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 742);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.focalLen);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.poseGroupBox);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.PARchk);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -830,10 +929,17 @@
             this.splitContainer.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.glyphCollectionContextMenu.ResumeLayout(false);
-            this.poseGroupBox.ResumeLayout(false);
-            this.poseGroupBox.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.poseGroupBox.ResumeLayout(false);
+            this.poseGroupBox.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.yawChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitchChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rollChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -842,10 +948,7 @@
         #endregion
 
         private AForge.Controls.VideoSourcePlayer videoSourcePlayer;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel fpsLabel;
@@ -870,25 +973,21 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printPreviewToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox PARchk;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox poseGroupBox;
-        private MatrixControl estimatedTransformationMatrixControl1;
-        private System.Windows.Forms.Button alternatePoseButton;
-        private System.Windows.Forms.Button bestPoseButton;
-        private System.Windows.Forms.TextBox focalLengthBox;
-        private System.Windows.Forms.Label focalLengthLabel;
-        private System.Windows.Forms.RadioButton copositRadio;
-        private System.Windows.Forms.RadioButton positRadio;
-        private MatrixControl estimatedTransformationMatrixControl2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button focalLen;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox klmNoiseY;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox klmNoiseX;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button Copy;
+        private System.Windows.Forms.CheckBox chbafter;
+        private System.Windows.Forms.CheckBox chbuseit;
         private System.Windows.Forms.TextBox tbx22;
         private System.Windows.Forms.TextBox tbx21;
         private System.Windows.Forms.TextBox tbx20;
@@ -898,20 +997,33 @@
         private System.Windows.Forms.TextBox tbx02;
         private System.Windows.Forms.TextBox tbx01;
         private System.Windows.Forms.TextBox tbx00;
-        private System.Windows.Forms.CheckBox chbafter;
-        private System.Windows.Forms.CheckBox chbuseit;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button focalLen;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox poseGroupBox;
         private System.Windows.Forms.Label label9;
         private MatrixControl estimatedTransformationMatrixControl3;
-        private System.Windows.Forms.Button Copy;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox klmNoiseX;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox klmNoiseY;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private MatrixControl estimatedTransformationMatrixControl2;
+        private MatrixControl estimatedTransformationMatrixControl1;
+        private System.Windows.Forms.Button alternatePoseButton;
+        private System.Windows.Forms.Button bestPoseButton;
+        private System.Windows.Forms.TextBox focalLengthBox;
+        private System.Windows.Forms.Label focalLengthLabel;
+        private System.Windows.Forms.RadioButton copositRadio;
+        private System.Windows.Forms.RadioButton positRadio;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart yawChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart pitchChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart rollChart;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.CheckBox PARchk;
     }
 }
 

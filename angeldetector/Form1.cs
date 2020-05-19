@@ -41,18 +41,18 @@ namespace angeldetector
 
 
 
-        Accord.Statistics.Running.KalmanFilter2D kfA1 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfA2 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfA3 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfA4 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfB1 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfB2 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfB3 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfB4 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfC1 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfC2 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfC3 = new Accord.Statistics.Running.KalmanFilter2D();
-        Accord.Statistics.Running.KalmanFilter2D kfC4 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfA1 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfA2 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfA3 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfA4 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfB1 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfB2 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfB3 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfB4 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfC1 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfC2 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfC3 = new Accord.Statistics.Running.KalmanFilter2D();
+        //Accord.Statistics.Running.KalmanFilter2D kfC4 = new Accord.Statistics.Running.KalmanFilter2D();
 
         #endregion
         #region Configuration Option Names
@@ -427,18 +427,18 @@ namespace angeldetector
 
                     if (Name == "A")
                     {
-                        kfA1.Push(Convert.ToDouble(intpoints[0].X), Convert.ToDouble(intpoints[0].Y));
-                        kfA2.Push(Convert.ToDouble(intpoints[1].X), Convert.ToDouble(intpoints[1].Y));
-                        kfA3.Push(Convert.ToDouble(intpoints[2].X), Convert.ToDouble(intpoints[2].Y));
-                        kfA4.Push(Convert.ToDouble(intpoints[3].X), Convert.ToDouble(intpoints[3].Y));
+                        //kfA1.Push(Convert.ToDouble(intpoints[0].X), Convert.ToDouble(intpoints[0].Y));
+                        //kfA2.Push(Convert.ToDouble(intpoints[1].X), Convert.ToDouble(intpoints[1].Y));
+                        //kfA3.Push(Convert.ToDouble(intpoints[2].X), Convert.ToDouble(intpoints[2].Y));
+                        //kfA4.Push(Convert.ToDouble(intpoints[3].X), Convert.ToDouble(intpoints[3].Y));
 
                         AForge.Point[] points = new AForge.Point[]
                         {
 
-                        new AForge.Point(){X = Convert.ToInt32(kfA1.X), Y = Convert.ToInt32(kfA1.Y) },
-                        new AForge.Point(){X = Convert.ToInt32(kfA2.X), Y = Convert.ToInt32(kfA2.Y) },
-                        new AForge.Point(){X = Convert.ToInt32(kfA3.X), Y = Convert.ToInt32(kfA3.Y) },
-                        new AForge.Point(){X = Convert.ToInt32(kfA4.X), Y = Convert.ToInt32(kfA4.Y) }
+                        new AForge.Point(){X = Convert.ToInt32(intpoints[0].X), Y = Convert.ToInt32(intpoints[0].Y) },
+                        new AForge.Point(){X = Convert.ToInt32(intpoints[1].X), Y = Convert.ToInt32(intpoints[1].Y) },
+                        new AForge.Point(){X = Convert.ToInt32(intpoints[2].X), Y = Convert.ToInt32(intpoints[2].Y) },
+                        new AForge.Point(){X = Convert.ToInt32(intpoints[3].X), Y = Convert.ToInt32(intpoints[3].Y) }
                         };
                         if (!useCoplanarPosit)
                         {
@@ -499,10 +499,10 @@ namespace angeldetector
                     }
                     else if (Name == "B")
                     {
-                        kfB1.Push(Convert.ToDouble(intpoints[0].X), Convert.ToDouble(intpoints[0].Y));
-                        kfB2.Push(Convert.ToDouble(intpoints[1].X), Convert.ToDouble(intpoints[1].Y));
-                        kfB3.Push(Convert.ToDouble(intpoints[2].X), Convert.ToDouble(intpoints[2].Y));
-                        kfB4.Push(Convert.ToDouble(intpoints[3].X), Convert.ToDouble(intpoints[3].Y));
+                        //kfB1.Push(Convert.ToDouble(intpoints[0].X), Convert.ToDouble(intpoints[0].Y));
+                        //kfB2.Push(Convert.ToDouble(intpoints[1].X), Convert.ToDouble(intpoints[1].Y));
+                        //kfB3.Push(Convert.ToDouble(intpoints[2].X), Convert.ToDouble(intpoints[2].Y));
+                        //kfB4.Push(Convert.ToDouble(intpoints[3].X), Convert.ToDouble(intpoints[3].Y));
 
                         //AForge.Point[] points = new AForge.Point[]
                         //{
@@ -556,9 +556,9 @@ namespace angeldetector
                         estimatedYaw = (float)Math.Atan2(rotationMatrix.V01, rotationMatrix.V00);
                         estimatedRoll = (float)Math.Atan2(rotationMatrix.V12, rotationMatrix.V22);
 
-                        yawb = estimatedYaw = Convert.ToSingle(KAYaw.Output(estimatedYaw * (float)(180.0 / Math.PI)));
-                        pitchb = estimatedPitch = Convert.ToSingle(KAPitch.Output(estimatedPitch * (float)(180.0 / Math.PI)));
-                        rollb = estimatedRoll = Convert.ToSingle(KARoll.Output(estimatedRoll * (float)(180.0 / Math.PI)));
+                        yawb = estimatedYaw = Convert.ToSingle(KBYaw.Output(estimatedYaw * (float)(180.0 / Math.PI)));
+                        pitchb = estimatedPitch = Convert.ToSingle(KBPitch.Output(estimatedPitch * (float)(180.0 / Math.PI)));
+                        rollb = estimatedRoll = Convert.ToSingle(KBRoll.Output(estimatedRoll * (float)(180.0 / Math.PI)));
                         // TO DOO
                         label2.Text = string.Format("B  ::  Rotation: (yaw(y)={0}, pitch(x)={1}, roll(z)={2})",
                                                Convert.ToInt32(estimatedYaw), Convert.ToInt32(estimatedPitch), Convert.ToInt32(estimatedRoll));
@@ -570,17 +570,17 @@ namespace angeldetector
                     }
                     else if (Name == "C")
                     {
-                        kfC1.Push(Convert.ToDouble(intpoints[0].X), Convert.ToDouble(intpoints[0].Y));
-                        kfC2.Push(Convert.ToDouble(intpoints[1].X), Convert.ToDouble(intpoints[1].Y));
-                        kfC3.Push(Convert.ToDouble(intpoints[2].X), Convert.ToDouble(intpoints[2].Y));
-                        kfC4.Push(Convert.ToDouble(intpoints[3].X), Convert.ToDouble(intpoints[3].Y));
+                        //kfC1.Push(Convert.ToDouble(intpoints[0].X), Convert.ToDouble(intpoints[0].Y));
+                        //kfC2.Push(Convert.ToDouble(intpoints[1].X), Convert.ToDouble(intpoints[1].Y));
+                        //kfC3.Push(Convert.ToDouble(intpoints[2].X), Convert.ToDouble(intpoints[2].Y));
+                        //kfC4.Push(Convert.ToDouble(intpoints[3].X), Convert.ToDouble(intpoints[3].Y));
 
                         AForge.Point[] points = new AForge.Point[]
                         {
-                        new AForge.Point(){X = Convert.ToInt32(kfC1.X), Y = Convert.ToInt32(kfC1.Y) },
-                        new AForge.Point(){X = Convert.ToInt32(kfC2.X), Y = Convert.ToInt32(kfC2.Y) },
-                        new AForge.Point(){X = Convert.ToInt32(kfC3.X), Y = Convert.ToInt32(kfC3.Y) },
-                        new AForge.Point(){X = Convert.ToInt32(kfC4.X), Y = Convert.ToInt32(kfC4.Y) }
+                        new AForge.Point(){X = Convert.ToInt32(intpoints[0].X), Y = Convert.ToInt32(intpoints[0].Y) },
+                        new AForge.Point(){X = Convert.ToInt32(intpoints[1].X), Y = Convert.ToInt32(intpoints[1].Y) },
+                        new AForge.Point(){X = Convert.ToInt32(intpoints[2].X), Y = Convert.ToInt32(intpoints[2].Y) },
+                        new AForge.Point(){X = Convert.ToInt32(intpoints[3].X), Y = Convert.ToInt32(intpoints[3].Y) }
                         };
                         if (!useCoplanarPosit)
                         {
@@ -622,9 +622,9 @@ namespace angeldetector
                         estimatedYaw = (float)Math.Atan2(rotationMatrix.V01, rotationMatrix.V00);
                         estimatedRoll = (float)Math.Atan2(rotationMatrix.V12, rotationMatrix.V22);
 
-                        yawc = estimatedYaw = Convert.ToSingle(KAYaw.Output(estimatedYaw * (float)(180.0 / Math.PI)));
-                        pitchc = estimatedPitch = Convert.ToSingle(KAPitch.Output(estimatedPitch * (float)(180.0 / Math.PI)));
-                        rollc = estimatedRoll = Convert.ToSingle(KARoll.Output(estimatedRoll * (float)(180.0 / Math.PI)));
+                        yawc = estimatedYaw = Convert.ToSingle(KCYaw.Output(estimatedYaw * (float)(180.0 / Math.PI)));
+                        pitchc = estimatedPitch = Convert.ToSingle(KCPitch.Output(estimatedPitch * (float)(180.0 / Math.PI)));
+                        rollc = estimatedRoll = Convert.ToSingle(KCRoll.Output(estimatedRoll * (float)(180.0 / Math.PI)));
                         // TO DOO
 
                         label8.Text = string.Format("C  ::  Rotation: (yaw(y)={0}, pitch(x)={1}, roll(z)={2})",
@@ -653,48 +653,54 @@ namespace angeldetector
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           double A = 1;
+           double H =1;
+           double Q = 0.750;//noise
+           double R = 1;//assumed
+           double P = 0.1;
+           double x = 0;
+            KARoll = new KalmanFilter(A, H,Q, R, P, x);
+            KAPitch = new KalmanFilter(A, H, Q, R, P, x);
+            KAYaw = new KalmanFilter(A, H, Q, R, P, x);
 
-            KARoll = new KalmanFilter(1, 1, 0.250, 1, 0.1, 0);
-            KAPitch = new KalmanFilter(1, 1, 0.250, 1, 0.1, 0);
-            KAYaw = new KalmanFilter(1, 1, 0.250, 1, 0.1, 0);
+            KBRoll = new KalmanFilter(A, H, Q, R, P, x);
+            KBPitch = new KalmanFilter(A, H, Q, R, P, x);
+            KBYaw = new KalmanFilter(A, H, Q, R, P, x);
 
-            KBRoll = new KalmanFilter(1, 1, 0.250, 1, 0.1, 0);
-            KBPitch = new KalmanFilter(1, 1, 0.250, 1, 0.1, 0);
-            KBYaw = new KalmanFilter(1, 1, 0.250, 1, 0.1, 0);
+            KCRoll = new KalmanFilter(A, H, Q, R, P, x);
+            KCPitch = new KalmanFilter(A, H, Q, R, P, x);
+            KCYaw = new KalmanFilter(A, H, Q, R, P, x);
+            //(1, 1, 0.250, 1, 0.1, 0);
 
-            KCRoll = new KalmanFilter(1, 1, 0.250, 1, 0.1, 0);
-            KCPitch = new KalmanFilter(1, 1, 0.250, 1, 0.1, 0);
-            KCYaw = new KalmanFilter(1, 1, 0.250, 1, 0.1, 0);
-
-            kfA1.NoiseX = double.Parse(klmNoiseX.Text);
-            kfA1.NoiseY = double.Parse(klmNoiseY.Text);
-            kfA2.NoiseX = double.Parse(klmNoiseX.Text);
-            kfA2.NoiseY = double.Parse(klmNoiseY.Text);
-            kfA3.NoiseX = double.Parse(klmNoiseX.Text);
-            kfA3.NoiseY = double.Parse(klmNoiseY.Text);
-            kfA4.NoiseX = double.Parse(klmNoiseX.Text);
-            kfA4.NoiseY = double.Parse(klmNoiseY.Text);
-
-
-            kfB1.NoiseX = double.Parse(klmNoiseX.Text);
-            kfB1.NoiseY = double.Parse(klmNoiseY.Text);
-            kfB2.NoiseX = double.Parse(klmNoiseX.Text);
-            kfB2.NoiseY = double.Parse(klmNoiseY.Text);
-            kfB3.NoiseX = double.Parse(klmNoiseX.Text);
-            kfB3.NoiseY = double.Parse(klmNoiseY.Text);
-            kfB4.NoiseX = double.Parse(klmNoiseX.Text);
-            kfB4.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfA1.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfA1.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfA2.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfA2.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfA3.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfA3.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfA4.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfA4.NoiseY = double.Parse(klmNoiseY.Text);
 
 
+            //kfB1.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfB1.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfB2.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfB2.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfB3.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfB3.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfB4.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfB4.NoiseY = double.Parse(klmNoiseY.Text);
 
-            kfC1.NoiseX = double.Parse(klmNoiseX.Text);
-            kfC1.NoiseY = double.Parse(klmNoiseY.Text);
-            kfC2.NoiseX = double.Parse(klmNoiseX.Text);
-            kfC2.NoiseY = double.Parse(klmNoiseY.Text);
-            kfC3.NoiseX = double.Parse(klmNoiseX.Text);
-            kfC3.NoiseY = double.Parse(klmNoiseY.Text);
-            kfC4.NoiseX = double.Parse(klmNoiseX.Text);
-            kfC4.NoiseY = double.Parse(klmNoiseY.Text);
+
+
+            //kfC1.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfC1.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfC2.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfC2.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfC3.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfC3.NoiseY = double.Parse(klmNoiseY.Text);
+            //kfC4.NoiseX = double.Parse(klmNoiseX.Text);
+            //kfC4.NoiseY = double.Parse(klmNoiseY.Text);
 
             estimatedTransformationMatrixControl1.Clear();
             estimatedTransformationMatrixControl2.Clear();
@@ -1052,22 +1058,22 @@ namespace angeldetector
         {
             try
             {
-                kfA1.NoiseX = double.Parse(klmNoiseX.Text);
-                kfA2.NoiseX = double.Parse(klmNoiseX.Text);
-                kfA3.NoiseX = double.Parse(klmNoiseX.Text);
-                kfA4.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfA1.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfA2.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfA3.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfA4.NoiseX = double.Parse(klmNoiseX.Text);
 
 
-                kfB1.NoiseX = double.Parse(klmNoiseX.Text);
-                kfB2.NoiseX = double.Parse(klmNoiseX.Text);
-                kfB3.NoiseX = double.Parse(klmNoiseX.Text);
-                kfB4.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfB1.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfB2.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfB3.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfB4.NoiseX = double.Parse(klmNoiseX.Text);
 
 
-                kfC1.NoiseX = double.Parse(klmNoiseX.Text);
-                kfC2.NoiseX = double.Parse(klmNoiseX.Text);
-                kfC3.NoiseX = double.Parse(klmNoiseX.Text);
-                kfC4.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfC1.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfC2.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfC3.NoiseX = double.Parse(klmNoiseX.Text);
+                //kfC4.NoiseX = double.Parse(klmNoiseX.Text);
             }
             catch (Exception)
             {
@@ -1080,23 +1086,23 @@ namespace angeldetector
         {
             try
             {
-                kfA1.NoiseY = double.Parse(klmNoiseY.Text);
-                kfA2.NoiseY = double.Parse(klmNoiseY.Text);
-                kfA3.NoiseY = double.Parse(klmNoiseY.Text);
-                kfA4.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfA1.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfA2.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfA3.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfA4.NoiseY = double.Parse(klmNoiseY.Text);
 
 
-                kfB1.NoiseY = double.Parse(klmNoiseY.Text);
-                kfB2.NoiseY = double.Parse(klmNoiseY.Text);
-                kfB3.NoiseY = double.Parse(klmNoiseY.Text);
-                kfB4.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfB1.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfB2.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfB3.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfB4.NoiseY = double.Parse(klmNoiseY.Text);
 
 
 
-                kfC1.NoiseY = double.Parse(klmNoiseY.Text);
-                kfC2.NoiseY = double.Parse(klmNoiseY.Text);
-                kfC3.NoiseY = double.Parse(klmNoiseY.Text);
-                kfC4.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfC1.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfC2.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfC3.NoiseY = double.Parse(klmNoiseY.Text);
+                //kfC4.NoiseY = double.Parse(klmNoiseY.Text);
             }
             catch (Exception)
             {

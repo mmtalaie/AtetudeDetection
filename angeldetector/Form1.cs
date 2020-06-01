@@ -491,12 +491,10 @@ namespace angeldetector
                         estimatedPitch = (float)Math.Asin(-rotationMatrix.V02);
                         estimatedYaw = (float)Math.Atan2(rotationMatrix.V01, rotationMatrix.V00);
                         estimatedRoll = (float)Math.Atan2(rotationMatrix.V12, rotationMatrix.V22);
-                        var a = estimatedYaw * (float)(180.0 / Math.PI);
-                        yawa = estimatedYaw = Convert.ToSingle(KAYaw.Output(a));
-                        var p = estimatedPitch * (float)(180.0 / Math.PI);
-                        pitcha = estimatedPitch = Convert.ToSingle(KAPitch.Output(p));
-                        var r = estimatedRoll * (float)(180.0 / Math.PI);
-                        rolla = estimatedRoll = Convert.ToSingle(KARoll.Output(r));
+                        yawa = estimatedYaw = Convert.ToSingle(KAYaw.Output(estimatedYaw * (float)(180.0 / Math.PI)));
+                        pitcha = estimatedPitch = Convert.ToSingle(KAPitch.Output(estimatedPitch * (float)(180.0 / Math.PI)));
+                        rolla = estimatedRoll = Convert.ToSingle(KARoll.Output(estimatedRoll * (float)(180.0 / Math.PI)));
+
 
                         // TO DOO
                         label1.Text = string.Format("A :: Rotation: (yaw(y)={0}, pitch(x)={1}, roll(z)={2})",
